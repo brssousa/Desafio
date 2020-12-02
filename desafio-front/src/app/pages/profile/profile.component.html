@@ -1,0 +1,24 @@
+<h2 class="content-block">Cadastrar</h2>
+
+<div class="content-block dx-card responsive-paddings">
+  <dx-form id="form"
+    [(formData)]="descricao"
+    labelLocation="top">
+
+    <dxi-item itemType="group" [colCount]="1">
+      <dxi-item dataField="descricao" editorType="dxTextBox" [editorOptions]="{ width: '300'}"></dxi-item>
+    </dxi-item>
+    <dxi-item [template]="template"></dxi-item>
+
+    <div *dxTemplate="let data of 'buttonTemplate'">
+      <dx-button
+        stylingMode="contained"
+        text="Salvar"
+        type="normal"
+        [width]="120"
+        (onClick)="click($event)">
+      </dx-button>
+    </div>
+
+  </dx-form>
+</div>

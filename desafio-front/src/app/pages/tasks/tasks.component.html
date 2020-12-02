@@ -1,0 +1,23 @@
+<h2 class="content-block">Tasks</h2>
+
+<dx-data-grid class="dx-card wide-card"
+  [dataSource]="dataSource"
+  [showBorders]="false"
+  [columnAutoWidth]="true"
+  [columnHidingEnabled]="true">
+
+  <dxo-paging [pageSize]="10"></dxo-paging>
+  <dxo-pager [showPageSizeSelector]="true" [showInfo]="true"></dxo-pager>
+  <dxo-filter-row [visible]="true"></dxo-filter-row>
+
+  <dxi-column
+    dataField="id"
+    [width]="90"
+    [hidingPriority]="2">
+  </dxi-column>
+  <dxi-column
+    dataField="descricao"
+    caption="Descricao"
+    [hidingPriority]="1">
+  </dxi-column>
+</dx-data-grid>
