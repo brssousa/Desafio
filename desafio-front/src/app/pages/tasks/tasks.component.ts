@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import 'devextreme/data/odata/store';
 
-import {Descricao} from "../listar/descricao";
+import {Descricao} from "../../model/descricao";
 import {ListaService} from "../../shared/services/listar.service";
 
 @Component({

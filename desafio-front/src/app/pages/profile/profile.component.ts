@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 
 import {ListaService} from '../../shared/services/listar.service';
-import {Descricao} from '../listar/descricao';
+import {Descricao} from '../../model/descricao';
 
 
 @Component({

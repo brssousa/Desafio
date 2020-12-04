@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Descricao } from './descricao';
+import { Descricao } from '../../model/descricao';
 import { ListaService } from '../../shared/services/listar.service';
 
 @Component({
