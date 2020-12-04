@@ -3,37 +3,50 @@ package br.com.sonner.desafio.controller;
 import java.net.URI;
 import java.util.List;
 
+import br.com.sonner.desafio.modelo.NotaFiscal;
+import br.com.sonner.desafio.repository.NotaFiscalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import br.com.sonner.desafio.modelo.Descricao;
-import br.com.sonner.desafio.repository.DesafioRepository;
+import br.com.sonner.desafio.modelo.ItensNota;
+import br.com.sonner.desafio.repository.ItensNotaRepository;
 
 @RestController
-@RequestMapping("/descricao")
 public class DesafioController {
 	
 	@Autowired
-	private DesafioRepository desafioRepository;
+	private ItensNotaRepository itensNotaRepository;
+	@Autowired
+	private NotaFiscalRepository notaFiscalRepository;
 	
-	@GetMapping
-	public List<Descricao> lista() {
-		List<Descricao> descricao = desafioRepository.findAll();
-		return descricao;
+	@GetMapping("/itens")
+	public List<ItensNota> lista() {
+		List<ItensNota> itens = itensNotaRepository.findAll();
+		return itens;
 	}
 	
-	@PostMapping
-	public ResponseEntity<Descricao> cadastrar(@RequestBody Descricao descricao, UriComponentsBuilder uriBuilder) {
-		desafioRepository.save(descricao);
+	@PostMapping("/itens")
+	public ResponseEntity<ItensNota> cadastrar(@RequestBody ItensNota itens, UriComponentsBuilder uriBuilder) {
+		itensNotaRepository.save(itens);
 		
-		URI uri = uriBuilder.path("/descricao/{id}").buildAndExpand(descricao.getId()).toUri();
-		return ResponseEntity.created(uri).body(new Descricao(descricao.getId(),descricao.getDescricao()));
+		URI uri = uriBuilder.path("/itens/{id}").buildAndExpand(itens.getId()).toUri();
+		return ResponseEntity.created(uri).body(new ItensNota(itens.getId(),itens.getItem(),itens.getValor()));
+	}
+
+	@GetMapping("/notaFiscal")
+	public List<NotaFiscal> listaNota() {
+		List<NotaFiscal> nota = notaFiscalRepository.findAll();
+		return nota;
+	}
+
+	@PostMapping("/notaFiscal")
+	public ResponseEntity<NotaFiscal> cadastrarNotas(@RequestBody NotaFiscal notas, UriComponentsBuilder uriBuilder) {
+		notaFiscalRepository.save(notas);
+
+		URI uri = uriBuilder.path("/itens/{id}").buildAndExpand(notas.getId()).toUri();
+		return ResponseEntity.created(uri).body(new NotaFiscal());
 	}
 
 }

@@ -4,7 +4,8 @@
     [dataSource]="descricoes"
     [focusedRowEnabled]="true"
     [focusedRowIndex]="0"
-    [showBorders]="true">
+    [showBorders]="true"
+    (onSaving)="onSaving($event)">
 
   <dxo-filter-row [visible]="true"></dxo-filter-row>
   <dxo-paging [pageSize]="10"></dxo-paging>

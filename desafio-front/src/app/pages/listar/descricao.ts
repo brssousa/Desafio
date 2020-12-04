@@ -1,4 +1,4 @@
-export interface Descricao {
+export class Descricao {
     id:number;
     descricao:string;
 }

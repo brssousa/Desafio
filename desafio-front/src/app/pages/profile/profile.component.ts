@@ -14,16 +14,17 @@ export class ProfileComponent implements OnInit{
   descricao: Descricao;
   template = 'buttonTemplate';
 
-  constructor(private services: ListaService) { }
+  constructor(private services: ListaService) {
+    this.descricao = new Descricao();
+  }
 
   // tslint:disable-next-line:typedef
   click(event: any) {
     this.services.criar(this.descricao)
       .subscribe((dado: Descricao) => {
-        this.descricao = dado;
+        this.descricao = new Descricao();
       });
     console.log(this.descricao);
-    
   }
 
   ngOnInit(): void {
