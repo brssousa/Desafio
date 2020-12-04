@@ -8,10 +8,17 @@ public class Itens {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	private String item;
-	private float valor;
+
 	@ManyToOne
-	private NotaFiscal notaId;
+	private NotaFiscal nota;
+
+	private String item;
+
+	private float valor;
+
+
+
+
 
 	public Itens(){
 

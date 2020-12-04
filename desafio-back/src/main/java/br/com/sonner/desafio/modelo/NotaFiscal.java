@@ -9,9 +9,18 @@ public class NotaFiscal {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+
 	private Long numero;
+
 	private String fornecedor;
+
+	@Temporal(TemporalType.DATE)
 	private Date data;
+
+	@OneToMany(mappedBy="nota")
+	private List<Itens> itens;
+
+
 
 
 
