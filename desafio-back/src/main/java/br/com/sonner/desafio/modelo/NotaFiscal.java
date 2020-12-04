@@ -12,19 +12,22 @@ public class NotaFiscal {
 	private Long numero;
 	private String fornecedor;
 	private Date data;
-	@ManyToOne
-	private ItensNota itens;
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name="itens_notaF",
+			joinColumns={@JoinColumn(name="notasF_id")},
+			inverseJoinColumns={@JoinColumn(name="itens_id")})
+	private Itens itens;
+
 
 	public NotaFiscal(){
 
 	}
 
-	public NotaFiscal(long id,Long numero, String fornecedor,Date data, ItensNota idItem) {
+	public NotaFiscal(long id,Long numero, String fornecedor,Date data) {
 		this.id = id;
 		this.numero = numero;
 		this.fornecedor = fornecedor;
 		this.data = data;
-		this.itens = idItem;
 	}
 
 
@@ -61,11 +64,4 @@ public class NotaFiscal {
 		this.data = data;
 	}
 
-	public ItensNota getItens() {
-		return itens;
-	}
-
-	public void setItens(ItensNota itens) {
-		this.itens = itens;
-	}
 }

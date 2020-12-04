@@ -1,25 +1,23 @@
 package br.com.sonner.desafio.modelo;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.util.Date;
+import javax.persistence.*;
 
 @Entity
-public class ItensNota {
+public class Itens {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private String item;
 	private float valor;
+	@ManyToMany(mappedBy = "itens", cascade = CascadeType.ALL)
+	private NotaFiscal notaFiscal;
 
-	public ItensNota(){
+	public Itens(){
 
 	}
 
-	public ItensNota(long id, String item, Float valor) {
+	public Itens(long id, String item, Float valor) {
 		this.id = id;
 		this.item = item;
 		this.valor = valor;
