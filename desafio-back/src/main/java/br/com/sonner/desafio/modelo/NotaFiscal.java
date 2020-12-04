@@ -1,7 +1,10 @@
 package br.com.sonner.desafio.modelo;
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class NotaFiscal {
@@ -17,7 +20,8 @@ public class NotaFiscal {
 	@Temporal(TemporalType.DATE)
 	private Date data;
 
-	@OneToMany(mappedBy="nota")
+	@OneToMany(mappedBy="nota", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	@Cascade(org.hibernate.annotations.CascadeType.ALL)
 	private List<Itens> itens;
 
 
