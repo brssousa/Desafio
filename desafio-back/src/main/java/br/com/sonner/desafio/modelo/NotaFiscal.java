@@ -12,11 +12,7 @@ public class NotaFiscal {
 	private Long numero;
 	private String fornecedor;
 	private Date data;
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name="itens_notaF",
-			joinColumns={@JoinColumn(name="notasF_id")},
-			inverseJoinColumns={@JoinColumn(name="itens_id")})
-	private Itens itens;
+
 
 
 	public NotaFiscal(){

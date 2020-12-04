@@ -10,8 +10,8 @@ public class Itens {
 	private long id;
 	private String item;
 	private float valor;
-	@ManyToMany(mappedBy = "itens", cascade = CascadeType.ALL)
-	private NotaFiscal notaFiscal;
+	@ManyToOne
+	private NotaFiscal notaId;
 
 	public Itens(){
 
