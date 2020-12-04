@@ -27,6 +27,8 @@ public class NotaFiscal {
 		this.itens = idItem;
 	}
 
+
+
 	public long getId() {
 		return id;
 	}

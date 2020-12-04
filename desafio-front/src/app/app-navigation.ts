@@ -17,8 +17,8 @@ export const navigation = [
         path: '/listar'
       },
       {
-        text: 'Listar 2 (Antiga Tasks)',
-        path: '/tasks'
+        text: 'Cadastrar Nota Fiscais',
+        path: '/cadNotas'
       }
     ]
   }

@@ -1,23 +1,24 @@
-<h2 class="content-block">Tasks</h2>
+<h2 class="content-block">Nota Fiscal</h2>
 
-<dx-data-grid class="dx-card wide-card"
-  [dataSource]="dataSource"
-  [showBorders]="false"
-  [columnAutoWidth]="true"
-  [columnHidingEnabled]="true">
+<div id="form-container">
+  <dx-form id="form"
+           [formData]="">
 
-  <dxo-paging [pageSize]="10"></dxo-paging>
-  <dxo-pager [showPageSizeSelector]="true" [showInfo]="true"></dxo-pager>
-  <dxo-filter-row [visible]="true"></dxo-filter-row>
+    <dxi-item itemType="group">
+      <dxi-item itemType="tabbed" [tabPanelOptions]="{ deferRendering: true }">
 
-  <dxi-column
-    dataField="id"
-    [width]="90"
-    [hidingPriority]="2">
-  </dxi-column>
-  <dxi-column
-    dataField="descricao"
-    caption="Descricao"
-    [hidingPriority]="1">
-  </dxi-column>
-</dx-data-grid>
+        <dxi-tab title="Dados Nota">
+          <dxi-item dataField="numeroNota"></dxi-item>
+          <dxi-item dataField="Nome Fornecedor" editorType="dxSelectBox"></dxi-item>
+          <dxi-item dataField="Data Nota" editorType="dxDateBox" style="width: auto"></dxi-item>
+        </dxi-tab>
+        <dxi-tab title="Itens">
+
+        </dxi-tab>
+
+      </dxi-item>
+    </dxi-item>
+
+
+  </dx-form>
+</div>

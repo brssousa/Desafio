@@ -15,6 +15,7 @@ import {ListarComponent} from './pages/listar/listar.component';
 import {ListaService} from './shared/services/listar.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AppRoutingModule} from './app-routing.module';
+import { ItensNotaComponent } from './pages/itens-nota/itens-nota.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import {AppRoutingModule} from './app-routing.module';
     HomeComponent,
     ProfileComponent,
     TasksComponent,
-    ListarComponent
+    ListarComponent,
+    ItensNotaComponent
   ],
   imports: [
     BrowserModule,

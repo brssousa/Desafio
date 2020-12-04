@@ -11,12 +11,10 @@ import {Descricao} from '../listar/descricao';
 
 export class ProfileComponent implements OnInit{
 
-  descricao: Descricao;
+  descricao: Descricao = new Descricao();
   template = 'buttonTemplate';
 
-  constructor(private services: ListaService) {
-    this.descricao = new Descricao();
-  }
+  constructor(private services: ListaService) { }
 
   // tslint:disable-next-line:typedef
   click(event: any) {
@@ -25,6 +23,7 @@ export class ProfileComponent implements OnInit{
         this.descricao = new Descricao();
       });
     console.log(this.descricao);
+
   }
 
   ngOnInit(): void {

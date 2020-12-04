@@ -10,14 +10,14 @@ import { ListaService } from '../../shared/services/listar.service';
 })
 export class ListarComponent implements OnInit {
 
-  descricoes: Descricao[];
+  descricao: Descricao[];
 
   constructor(private services: ListaService) { }
 
   ngOnInit(): void {
 
     this.services.list().subscribe(dados => {
-      this.descricoes = dados;
+      this.descricao = dados;
     });
   }
 
