@@ -10,6 +10,7 @@ public class Itens {
 	private long id;
 
 	@ManyToOne
+	@JoinColumn
 	private NotaFiscal nota;
 
 	private String item;
@@ -52,5 +53,13 @@ public class Itens {
 
 	public void setValor(float valor) {
 		this.valor = valor;
+	}
+
+	public NotaFiscal getNota() {
+		return nota;
+	}
+
+	public void setNota(NotaFiscal nota) {
+		this.nota = nota;
 	}
 }

@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/desafio.iml" filepath="$PROJECT_DIR$/desafio.iml" />
       <module fileurl="file://$PROJECT_DIR$/../desafio-front/desafio-front.iml" filepath="$PROJECT_DIR$/../desafio-front/desafio-front.iml" />
+      <module fileurl="file://$USER_HOME$/DEV/1236-springapi-aula6/forum.iml" filepath="$USER_HOME$/DEV/1236-springapi-aula6/forum.iml" />
     </modules>
   </component>
 </project>

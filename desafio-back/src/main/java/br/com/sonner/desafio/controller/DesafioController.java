@@ -12,29 +12,16 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import javax.transaction.Transactional;
 
 
 @RestController
 public class DesafioController {
 	
 	@Autowired
-	private ItensRepository itensRepository;
-	@Autowired
 	private NotaFiscalRepository notaFiscalRepository;
-	
-	@GetMapping("/itens")
-	public List<Itens> lista() {
-		List<Itens> itens = itensRepository.findAll();
-		return itens;
-	}
-	
-	@PostMapping("/itens")
-	public ResponseEntity<Itens> cadastrar(@RequestBody Itens itens, UriComponentsBuilder uriBuilder) {
-		itensRepository.save(itens);
-		
-		URI uri = uriBuilder.path("/itens/{id}").buildAndExpand(itens.getId()).toUri();
-		return ResponseEntity.created(uri).body(new Itens(itens.getId(),itens.getItem(),itens.getValor()));
-	}
+	@Autowired
+	private ItensRepository itensRepository;
 
 	@GetMapping("/notaFiscal")
 	public List<NotaFiscal> listaNota() {
@@ -43,11 +30,24 @@ public class DesafioController {
 	}
 
 	@PostMapping("/notaFiscal")
+	@Transactional
 	public ResponseEntity<NotaFiscal> cadastrarNotas(@RequestBody NotaFiscal notas, UriComponentsBuilder uriBuilder) {
 		notaFiscalRepository.save(notas);
 
 		URI uri = uriBuilder.path("/itens/{id}").buildAndExpand(notas.getId()).toUri();
-		return ResponseEntity.created(uri).body(new NotaFiscal());
+		return ResponseEntity.created(uri).body(new NotaFiscal(
+				notas.getId(),notas.getFornecedor(),notas.getNumero(),notas.getData()));
 	}
+
+	/*@PostMapping("/notaFiscal")
+	@Transactional
+	public ResponseEntity<Itens> cadastrarItens(@RequestBody Itens itens, UriComponentsBuilder uriBuilder) {
+		itensRepository.save(itens);
+
+		URI uri = uriBuilder.path("/itens/{id}").buildAndExpand(itens.getId()).toUri();
+		return ResponseEntity.created(uri).body(new Itens(
+				itens.getId(), itens.getItem(), itens.getValor()
+		));
+	}*/
 
 }

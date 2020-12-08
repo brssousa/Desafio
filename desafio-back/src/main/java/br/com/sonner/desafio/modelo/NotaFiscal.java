@@ -1,8 +1,12 @@
 package br.com.sonner.desafio.modelo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.DateSerializer;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -17,13 +21,14 @@ public class NotaFiscal {
 
 	private String fornecedor;
 
-	@Temporal(TemporalType.DATE)
+
+	@JsonSerialize (using = DateSerializer.class)
 	private Date data;
+
 
 	@OneToMany(mappedBy="nota", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	@Cascade(org.hibernate.annotations.CascadeType.ALL)
-	private List<Itens> itens;
-
+	private List<Itens> itens = new ArrayList<>();
 
 
 
@@ -32,13 +37,14 @@ public class NotaFiscal {
 
 	}
 
-	public NotaFiscal(long id,Long numero, String fornecedor,Date data) {
+
+	public NotaFiscal(long id, String fornecedor, Long numero, Date data) {
 		this.id = id;
 		this.numero = numero;
 		this.fornecedor = fornecedor;
 		this.data = data;
-	}
 
+	}
 
 
 	public long getId() {
@@ -65,12 +71,21 @@ public class NotaFiscal {
 		this.fornecedor = fornecedor;
 	}
 
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
 	public Date getData() {
 		return data;
 	}
 
 	public void setData(Date data) {
 		this.data = data;
+	}
+
+	public List<Itens> getItens() {
+		return itens;
+	}
+
+	public void setItens(List<Itens> itens) {
+		this.itens = itens;
 	}
 
 }
