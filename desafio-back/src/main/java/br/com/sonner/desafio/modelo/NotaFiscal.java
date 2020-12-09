@@ -26,8 +26,7 @@ public class NotaFiscal {
 	private Date data;
 
 
-	@OneToMany(mappedBy="nota", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-	@Cascade(org.hibernate.annotations.CascadeType.ALL)
+	@OneToMany(mappedBy="nota", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Itens> itens = new ArrayList<>();
 
 
@@ -85,6 +84,11 @@ public class NotaFiscal {
 	}
 
 	public void setItens(List<Itens> itens) {
+		itens.forEach( i -> {
+			if(i!=null && i.getNota()==null){
+				i.setNota(this);
+			}
+		});
 		this.itens = itens;
 	}
 

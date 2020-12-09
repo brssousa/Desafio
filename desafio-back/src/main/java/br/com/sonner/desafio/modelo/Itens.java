@@ -10,7 +10,6 @@ public class Itens {
 	private long id;
 
 	@ManyToOne
-	@JoinColumn
 	private NotaFiscal nota;
 
 	private String item;
