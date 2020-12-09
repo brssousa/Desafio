@@ -32,11 +32,13 @@ export class TasksComponent implements OnInit {
   ngOnInit(): void {
 
     this.notaFiscal.itens = new Array();
+/*
     let item: Itens = new Itens();
     item.item = "Teste";
     item.valor = 2;
     this.notaFiscal.itens.push(item);
     this.notaFiscal.itens.push(item);
+*/
 
 
     this.services.list()
