@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 
 import {ListaService} from '../../shared/services/listar.service';
-import {Descricao} from '../listar/descricao';
+import {Fornecedor} from "../../model/fornecedor";
+
 
 
 @Component({
@@ -11,18 +12,18 @@ import {Descricao} from '../listar/descricao';
 
 export class ProfileComponent implements OnInit{
 
-  descricao: Descricao = new Descricao();
+  fornecedor: Fornecedor = new Fornecedor();
   template = 'buttonTemplate';
 
   constructor(private services: ListaService) { }
 
   // tslint:disable-next-line:typedef
   click(event: any) {
-    this.services.criar(this.descricao)
-      .subscribe((dado: Descricao) => {
-        this.descricao = new Descricao();
+    this.services.criar(this.fornecedor)
+      .subscribe((dado: Fornecedor) => {
+        this.fornecedor = new Fornecedor();
       });
-    console.log(this.descricao);
+    console.log(this.fornecedor);
 
   }
 

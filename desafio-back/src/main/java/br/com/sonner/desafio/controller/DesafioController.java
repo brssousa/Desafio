@@ -3,8 +3,10 @@ package br.com.sonner.desafio.controller;
 import java.net.URI;
 import java.util.List;
 
+import br.com.sonner.desafio.modelo.Fornecedor;
 import br.com.sonner.desafio.modelo.Itens;
 import br.com.sonner.desafio.modelo.NotaFiscal;
+import br.com.sonner.desafio.repository.FornecedorRepository;
 import br.com.sonner.desafio.repository.ItensRepository;
 import br.com.sonner.desafio.repository.NotaFiscalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +23,7 @@ public class DesafioController {
 	@Autowired
 	private NotaFiscalRepository notaFiscalRepository;
 	@Autowired
-	private ItensRepository itensRepository;
+	private FornecedorRepository fornecedorRepository;
 
 	@GetMapping("/notaFiscal")
 	public List<NotaFiscal> listaNota() {
@@ -39,15 +41,15 @@ public class DesafioController {
 				notas.getId(),notas.getFornecedor(),notas.getNumero(),notas.getData()));
 	}
 
-	/*@PostMapping("/notaFiscal")
+	@PostMapping("/fornecedor")
 	@Transactional
-	public ResponseEntity<Itens> cadastrarItens(@RequestBody Itens itens, UriComponentsBuilder uriBuilder) {
-		itensRepository.save(itens);
+	public ResponseEntity<Fornecedor> cadastrarFornecedor(@RequestBody Fornecedor fornecedor, UriComponentsBuilder uriBuilder) {
+		fornecedorRepository.save(fornecedor);
 
-		URI uri = uriBuilder.path("/itens/{id}").buildAndExpand(itens.getId()).toUri();
-		return ResponseEntity.created(uri).body(new Itens(
-				itens.getId(), itens.getItem(), itens.getValor()
+		URI uri = uriBuilder.path("/itens/{id}").buildAndExpand(fornecedor.getId()).toUri();
+		return ResponseEntity.created(uri).body(new Fornecedor(
+				fornecedor.getId(), fornecedor.getFornecedor()
 		));
-	}*/
+	}
 
 }

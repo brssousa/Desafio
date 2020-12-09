@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Descricao } from './descricao';
+
 import { ListaService } from '../../shared/services/listar.service';
+import {Fornecedor} from "../../model/fornecedor";
 
 @Component({
   selector: 'app-listar',
@@ -10,14 +11,14 @@ import { ListaService } from '../../shared/services/listar.service';
 })
 export class ListarComponent implements OnInit {
 
-  descricao: Descricao[];
+  fornecedor: Fornecedor[];
 
   constructor(private services: ListaService) { }
 
   ngOnInit(): void {
 
     this.services.list().subscribe(dados => {
-      this.descricao = dados;
+      this.fornecedor = dados;
     });
   }
 

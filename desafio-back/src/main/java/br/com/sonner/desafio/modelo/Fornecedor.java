@@ -6,19 +6,19 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Descricao {
-	
+public class Fornecedor {
+
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	private String descricao;
+	private String fornecedor;
 
-	public Descricao(){
+	public Fornecedor(){
 
 	}
-	public Descricao(long id, String descricao) {
+	public Fornecedor(long id, String fornecedor) {
 		this.id = id;
-		this.descricao = descricao;
+		this.fornecedor = fornecedor;
 	}
 
 	public long getId() {
@@ -27,11 +27,11 @@ public class Descricao {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getDescricao() {
-		return descricao;
+	public String getFornecedor() {
+		return fornecedor;
 	}
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
+	public void setFornecedor(String descricao) {
+		this.fornecedor = descricao;
 	}
 	
 

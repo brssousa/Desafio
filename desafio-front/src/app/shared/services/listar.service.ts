@@ -1,22 +1,24 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 
-import {Descricao} from '../../pages/listar/descricao';
+import {Fornecedor} from "../../model/fornecedor";
+
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ListaService {
 
-  urlApi = 'http://localhost:8080/descricao';
+  urlApi = 'http://localhost:8080/fornecedor';
 
   constructor(private http: HttpClient) { }
 
 
   list(){
-    return this.http.get<Descricao[]>(this.urlApi);
+    return this.http.get<Fornecedor[]>(this.urlApi);
   }
-  criar(descricao: any){
-    return this.http.post(this.urlApi, descricao);
+  criar(fornecedor: any){
+    return this.http.post(this.urlApi, fornecedor);
   }
 }

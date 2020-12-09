@@ -1,15 +1,16 @@
 import {Component, OnInit} from '@angular/core';
 import 'devextreme/data/odata/store';
 
-import {Descricao} from "../listar/descricao";
+
 import {ListaService} from "../../shared/services/listar.service";
+import {Fornecedor} from "../../model/fornecedor";
 
 @Component({
   templateUrl: 'tasks.component.html'
 })
 
 export class TasksComponent implements OnInit {
-  dataSource: Descricao[];
+  dataSource: Fornecedor[];
   priority: any[];
 
   constructor(private services: ListaService) {

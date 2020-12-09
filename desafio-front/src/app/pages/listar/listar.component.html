@@ -1,7 +1,7 @@
-<h2 class="content-block">Lista Descrição</h2>
+<h2 class="content-block">Lista de Fornecedores</h2>
 <dx-data-grid
     id="gridContainer"
-    [dataSource]="descricao"
+    [dataSource]="fornecedor"
     [focusedRowEnabled]="true"
     [focusedRowIndex]="0"
     [showBorders]="true">
@@ -16,8 +16,8 @@
   </dxo-editing>
 
   <dxi-column
-    dataField="descricao"
-    caption="Descricao"
+    dataField="fornecedor"
+    caption="Fornecedor"
     cellTemplate="descricaoCellTemplate">
   </dxi-column>
 
