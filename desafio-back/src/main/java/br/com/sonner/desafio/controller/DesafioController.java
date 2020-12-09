@@ -41,6 +41,12 @@ public class DesafioController {
 				notas.getId(),notas.getFornecedor(),notas.getNumero(),notas.getData()));
 	}
 
+	@GetMapping("/fornecedor")
+	public List<Fornecedor> listaFornecedor() {
+		List<Fornecedor> fornecedor = fornecedorRepository.findAll();
+		return fornecedor;
+	}
+
 	@PostMapping("/fornecedor")
 	@Transactional
 	public ResponseEntity<Fornecedor> cadastrarFornecedor(@RequestBody Fornecedor fornecedor, UriComponentsBuilder uriBuilder) {
