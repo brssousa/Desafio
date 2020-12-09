@@ -11,7 +11,6 @@ import {Fornecedor} from "../../model/fornecedor";
 
 export class TasksComponent implements OnInit {
   dataSource: Fornecedor[];
-  priority: any[];
 
   constructor(private services: ListaService) {
   }

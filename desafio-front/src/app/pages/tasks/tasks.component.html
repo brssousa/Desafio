@@ -2,14 +2,14 @@
 
 <div id="form-container">
   <dx-form id="form"
-           [formData]="">
+           [formData]="dataSource">
 
     <dxi-item itemType="group">
       <dxi-item itemType="tabbed" [tabPanelOptions]="{ deferRendering: true }">
 
         <dxi-tab title="Dados Nota">
           <dxi-item dataField="numeroNota"></dxi-item>
-          <dxi-item dataField="Nome Fornecedor" editorType="dxSelectBox"></dxi-item>
+          <dxi-item dataField="fornecedor" editorType="dxSelectBox"></dxi-item>
           <dxi-item dataField="Data Nota" editorType="dxDateBox" style="width: auto"></dxi-item>
         </dxi-tab>
         <dxi-tab title="Itens">
