@@ -6,7 +6,7 @@ import {SideNavInnerToolbarModule, SideNavOuterToolbarModule, SingleCardModule} 
 import {FooterModule, LoginFormModule} from './shared/components';
 import {AppInfoService, AuthService, ScreenService} from './shared/services';
 import {NotAuthorizedContainerModule} from './not-authorized-container';
-import {DxButtonModule, DxDataGridModule, DxFormModule, DxTemplateModule} from 'devextreme-angular';
+import {DxButtonModule, DxDataGridModule, DxFormModule, DxSelectBoxModule, DxTemplateModule} from 'devextreme-angular';
 import {HttpClientModule} from '@angular/common/http';
 import {HomeComponent} from './pages/home/home.component';
 import {ProfileComponent} from './pages/profile/profile.component';
@@ -39,6 +39,7 @@ import { ItensNotaComponent } from './pages/itens-nota/itens-nota.component';
     DxButtonModule,
     DxFormModule,
     DxTemplateModule,
+    DxSelectBoxModule,
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,

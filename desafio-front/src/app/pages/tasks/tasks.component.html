@@ -1,24 +1,50 @@
 <h2 class="content-block">Nota Fiscal</h2>
 
 <div id="form-container">
-  <dx-form id="form"
-           [formData]="dataSource">
 
-    <dxi-item itemType="group">
-      <dxi-item itemType="tabbed" [tabPanelOptions]="{ deferRendering: true }">
 
-        <dxi-tab title="Dados Nota">
-          <dxi-item dataField="numeroNota"></dxi-item>
-          <dxi-item dataField="fornecedor" editorType="dxSelectBox"></dxi-item>
-          <dxi-item dataField="Data Nota" editorType="dxDateBox" style="width: auto"></dxi-item>
-        </dxi-tab>
-        <dxi-tab title="Itens">
+  <dx-form [(formData)]="notaFiscal">
 
-        </dxi-tab>
+    <dxi-item itemType="tabbed">
 
-      </dxi-item>
+      <dxi-tab title="Corpo da Nota">
+
+        <dxi-item dataField="numero" ></dxi-item>
+        <dxi-item dataField="fornecedor" template="fornecedorTemplate"></dxi-item>
+        <dxi-item dataField="data"></dxi-item>
+
+      </dxi-tab>
+
+      <dxi-tab title="Itens da Nota">
+        <dxi-item dataField="itens" template="gridTemplate"></dxi-item>
+      </dxi-tab>
+
     </dxi-item>
+
+    <div *dxTemplate="let data of 'fornecedorTemplate'">
+      <dx-select-box [items]="fornecedores"
+                     [(value)]="data.component.option('formData')[data.dataField]"
+                     displayExpr="fornecedor">
+      </dx-select-box>
+    </div>
+
+    <div *dxTemplate="let data of 'gridTemplate'">
+      <dx-data-grid
+        [(dataSource)]="notaFiscal.itens">
+
+        <dxo-editing
+          mode="row"
+          [allowUpdating]="true"
+          [allowDeleting]="true"
+          [allowAdding]="true">
+        </dxo-editing>
+      </dx-data-grid>
+
+    </div>
+
 
 
   </dx-form>
+
+
 </div>
