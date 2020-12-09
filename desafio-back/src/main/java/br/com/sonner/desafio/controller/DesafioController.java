@@ -27,8 +27,8 @@ public class DesafioController {
 
 	@GetMapping("/notaFiscal")
 	public List<NotaFiscal> listaNota() {
-		List<NotaFiscal> nota = notaFiscalRepository.findAll();
-		return nota;
+		List<NotaFiscal> notas = notaFiscalRepository.findAll();
+		return notas;
 	}
 
 	@PostMapping("/notaFiscal")
@@ -43,8 +43,8 @@ public class DesafioController {
 
 	@GetMapping("/fornecedor")
 	public List<Fornecedor> listaFornecedor() {
-		List<Fornecedor> fornecedor = fornecedorRepository.findAll();
-		return fornecedor;
+		List<Fornecedor> forn = fornecedorRepository.findAll();
+		return forn;
 	}
 
 	@PostMapping("/fornecedor")
