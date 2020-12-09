@@ -56,7 +56,11 @@
               "src/dx-styles.scss",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "allowedCommonJsDependencies": [
+              "devextreme",
+              "devextreme-angular"
+            ]
           },
           "configurations": {
             "production": {
