@@ -27,8 +27,7 @@ export class TasksComponent implements OnInit {
 
   }
 
-  // tslint:disable-next-line:typedef
-  click(event: any) {
+  click(event: NotaFiscal) {
     this.services.criarNota(this.notaFiscal)
       .subscribe((dado: NotaFiscal) => {
         this.notaFiscal = dado;
