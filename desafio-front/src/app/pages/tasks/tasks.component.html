@@ -1,4 +1,3 @@
-
 <!--<h2 class="content-block">Cadastrar Notas Ficais</h2>
 
 <div class="content-block dx-card responsive-paddings">
@@ -62,8 +61,12 @@
 
         <dxi-tab title="Dados Nota">
           <dxi-item dataField="numero" editorType="dxTextBox" [editorOptions]="{ width: '300'}"></dxi-item>
-          <dxi-item template="selectFornecedor"></dxi-item>
+          <dxi-item dataField="fornecedor" template="selectFornecedor"></dxi-item>
           <dxi-item dataField="data" editorType="dxDateBox" [editorOptions]="{ width: '300'}"></dxi-item>
+        </dxi-tab>
+
+        <dxi-tab title="Informaçoes Extra">
+          <estados-cidades></estados-cidades>
         </dxi-tab>
 
         <dxi-tab title="Itens">
@@ -74,8 +77,9 @@
 
       <div *dxTemplate="let data of 'selectFornecedor'">
         <dx-select-box
-          [(dataSource)]="fornecedores"
-          [items]="fornecedores">
+                      [(value)]="data.component.option('formData')[data.dataField]"
+                      displayExpr="fornecedor"
+                      [items]="fornecedores">
         </dx-select-box>
       </div>
 

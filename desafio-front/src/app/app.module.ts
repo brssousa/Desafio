@@ -6,7 +6,7 @@ import {SideNavInnerToolbarModule, SideNavOuterToolbarModule, SingleCardModule} 
 import {FooterModule, LoginFormModule} from './shared/components';
 import {AppInfoService, AuthService, ScreenService} from './shared/services';
 import {NotAuthorizedContainerModule} from './not-authorized-container';
-import {DxButtonModule, DxDataGridModule, DxFormModule, DxTemplateModule} from 'devextreme-angular';
+import {DxButtonModule, DxDataGridModule, DxFormModule, DxSelectBoxModule, DxTemplateModule} from 'devextreme-angular';
 import {HttpClientModule} from '@angular/common/http';
 import {HomeComponent} from './pages/home/home.component';
 import {ProfileComponent} from './pages/profile/profile.component';
@@ -16,6 +16,7 @@ import {ListaService} from './shared/services/listar.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AppRoutingModule} from './app-routing.module';
 import { ItensNotaComponent } from './pages/itens-nota/itens-nota.component';
+import { EstadosCidadesComponent } from './shared/components/estados-cidades/estados-cidades.component';
 
 
 @NgModule({
@@ -25,25 +26,27 @@ import { ItensNotaComponent } from './pages/itens-nota/itens-nota.component';
     ProfileComponent,
     TasksComponent,
     ListarComponent,
-    ItensNotaComponent
+    ItensNotaComponent,
+    EstadosCidadesComponent
   ],
-  imports: [
-    BrowserModule,
-    SideNavOuterToolbarModule,
-    SideNavInnerToolbarModule,
-    SingleCardModule,
-    FooterModule,
-    LoginFormModule,
-    NotAuthorizedContainerModule,
-    DxDataGridModule,
-    DxButtonModule,
-    DxFormModule,
-    DxTemplateModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    FormsModule,
-    AppRoutingModule
-  ],
+    imports: [
+        BrowserModule,
+        SideNavOuterToolbarModule,
+        SideNavInnerToolbarModule,
+        SingleCardModule,
+        FooterModule,
+        LoginFormModule,
+        NotAuthorizedContainerModule,
+        DxDataGridModule,
+        DxButtonModule,
+        DxFormModule,
+        DxTemplateModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        FormsModule,
+        AppRoutingModule,
+        DxSelectBoxModule
+    ],
   providers: [
     AuthService,
     ScreenService,
