@@ -31,7 +31,7 @@ export class TasksComponent implements OnInit {
   click(event: any) {
     this.services.criarNota(this.notaFiscal)
       .subscribe((dado: NotaFiscal) => {
-        this.notaFiscal = new NotaFiscal();
+        this.notaFiscal = dado;
       });
     console.log(this.notaFiscal);
   }

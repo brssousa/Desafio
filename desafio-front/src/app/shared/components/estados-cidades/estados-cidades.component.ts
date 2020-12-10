@@ -11,7 +11,7 @@ import {Observable} from "rxjs";
 export class EstadosCidadesComponent implements OnInit {
 
   estados: Observable<Estados[]>;
-  estadoUF: string;
+  estadoUF: Estados;
   cidades: string[] = [];
 
 
@@ -21,12 +21,19 @@ export class EstadosCidadesComponent implements OnInit {
 
     this.estados = this.services.listaEstados();
 
-    console.log(this.estados);
+  }
 
-    this.services.listaCidades().subscribe(dados => {
-      this.cidades = dados;
+  setEstado(event: Estados){
+    if(event && event!=this.estadoUF){
+      this.estadoUF = event;
+      this.services.listaCidades(this.estadoUF.sigla).subscribe(dados => {
+        // @ts-ignore
+        this.cidades = dados;
+      });
+    }
 
-    });
+
+
   }
 
 }

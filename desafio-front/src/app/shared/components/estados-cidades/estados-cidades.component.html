@@ -3,6 +3,8 @@
   placeholder="Selecione o Estado"
   displayExpr="sigla"
   [searchEnabled]="true"
+  [value]="estadoUF"
+  (valueChange)="setEstado($event)"
   style="padding-top: 40px">
 
 </dx-select-box>

@@ -14,7 +14,7 @@ export class ListaService {
   urlApi = 'http://localhost:8080/fornecedor';
   apiNotas = 'http://localhost:8080/notaFiscal';
   estadoApi = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados/31|35';
-  cidadeApi = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados/35/distritos?orderBy=nome';
+
 
   constructor(private http: HttpClient) { }
 
@@ -27,8 +27,9 @@ export class ListaService {
     return this.http.get<Estados[]>(this.estadoApi);
   }
 
-  listaCidades(){
-    return this.http.get<string[]>(this.cidadeApi);
+  listaCidades(uf: string){
+    let cidadeApi = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados/'+uf+'/distritos?orderBy=nome';
+    return this.http.get<String[]>(cidadeApi);
   }
 
   criar(fornecedor: any){
