@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ListaService} from "../../services/listar.service";
+import {Estados} from "../../../model/estados";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'estados-cidades',
@@ -8,15 +10,22 @@ import {ListaService} from "../../services/listar.service";
 })
 export class EstadosCidadesComponent implements OnInit {
 
-  estados: string[] = [];
+  estados: Observable<Estados[]>;
+  estadoUF: string;
+  cidades: string[] = [];
+
 
   constructor(private services: ListaService) { }
 
   ngOnInit(): void {
 
-    this.services.listaEstados().subscribe(dados => {
-      this.estados = dados;
-      console.log(this.estados);
+    this.estados = this.services.listaEstados();
+
+    console.log(this.estados);
+
+    this.services.listaCidades().subscribe(dados => {
+      this.cidades = dados;
+
     });
   }
 

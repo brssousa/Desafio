@@ -1,1 +1,16 @@
-<dx-select-box [items]="estados" placeholder="Selecione o Estado"></dx-select-box>
+<dx-select-box
+  [items]="estados | async"
+  placeholder="Selecione o Estado"
+  displayExpr="sigla"
+  [searchEnabled]="true"
+  style="padding-top: 40px">
+
+</dx-select-box>
+
+<dx-select-box
+  [items]="cidades"
+  placeholder="Selecione a Cidade"
+  displayExpr="nome"
+  [searchEnabled]="true"
+  style="padding-top: 40px">
+</dx-select-box>
