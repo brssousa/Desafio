@@ -11,6 +11,7 @@ import {Fornecedor} from "../../model/fornecedor";
 export class ListaService {
 
   urlApi = 'http://localhost:8080/fornecedor';
+  apiNotas = 'http://localhost:8080/notaFiscal';
 
   constructor(private http: HttpClient) { }
 
@@ -20,5 +21,9 @@ export class ListaService {
   }
   criar(fornecedor: any){
     return this.http.post(this.urlApi, fornecedor);
+  }
+
+  criarNota(nota: any){
+    return this.http.post(this.apiNotas, nota);
   }
 }

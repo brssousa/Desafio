@@ -9,11 +9,11 @@ export const navigation = [
     icon: 'folder',
     items: [
       {
-        text: 'Cadastrar',
+        text: 'Cadastrar Fornecedor',
         path: '/cadastrar'
       },
       {
-        text: 'Listar',
+        text: 'Listar Fornecedor',
         path: '/listar'
       },
       {

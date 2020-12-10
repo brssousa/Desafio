@@ -1,24 +1,93 @@
+
+<!--<h2 class="content-block">Cadastrar Notas Ficais</h2>
+
+<div class="content-block dx-card responsive-paddings">
+  <dx-form id="form"
+           [(formData)]="notaFiscal"
+           labelLocation="top">
+
+    <dxi-item itemType="group" [colCount]="1">
+      <dxi-item dataField="numero" editorType="dxTextBox" [editorOptions]="{ width: '300'}"></dxi-item>
+      <dxi-item
+        [editorOptions]="{ items: fornecedores, displayExpr:'fornecedor', searchEnabled: true,
+        value: 'notaFiscal.fornecedor' }"
+        displayExpr="fornecedor"
+        editorType="dxSelectBox"
+        caption="Fornecedores"
+      ></dxi-item>
+      <dxi-item dataField="data" editorType="dxDateBox" [editorOptions]="{ width: '300'}"></dxi-item>
+    </dxi-item>
+
+
+      <dxi-item itemType="group"
+                name="itens"
+                *ngFor="let itens of itens; let i = index">
+        <dxi-item [dataField]="'Itens[' + i + ']'" [editorOptions]="itens[i]">
+          <dxo-label
+            [text]="'Item ' + (i + 1)">
+          </dxo-label>
+        </dxi-item>
+      </dxi-item>
+      <dxi-item itemType="button"
+                horizontalAlignment="left"
+                cssClass="add-phone-button"
+                [buttonOptions]="addItemButtonOptions">
+      </dxi-item>
+
+
+    <dxi-item template="buttonTemplate"></dxi-item>
+
+    <div *dxTemplate="let data of 'selectFornecedor'">
+    </div>
+
+    <div *dxTemplate="let data of 'buttonTemplate'">
+      <dx-button
+        stylingMode="contained"
+        text="Salvar"
+        type="normal"
+        [width]="120"
+        (onClick)="click($event)">
+      </dx-button>
+    </div>
+
+  </dx-form>
+</div>-->
+
 <h2 class="content-block">Nota Fiscal</h2>
 
 <div id="form-container">
-  <dx-form id="form"
-           [formData]="dataSource">
+  <dx-form id="" [(formData)]="notaFiscal">
 
-    <dxi-item itemType="group">
-      <dxi-item itemType="tabbed" [tabPanelOptions]="{ deferRendering: true }">
+      <dxi-item itemType="tabbed">
 
         <dxi-tab title="Dados Nota">
-          <dxi-item dataField="numeroNota"></dxi-item>
-          <dxi-item dataField="fornecedor" editorType="dxSelectBox"></dxi-item>
-          <dxi-item dataField="Data Nota" editorType="dxDateBox" style="width: auto"></dxi-item>
+          <dxi-item dataField="numero" editorType="dxTextBox" [editorOptions]="{ width: '300'}"></dxi-item>
+          <dxi-item template="selectFornecedor"></dxi-item>
+          <dxi-item dataField="data" editorType="dxDateBox" [editorOptions]="{ width: '300'}"></dxi-item>
         </dxi-tab>
-        <dxi-tab title="Itens">
 
+        <dxi-tab title="Itens">
         </dxi-tab>
 
       </dxi-item>
-    </dxi-item>
+      <dxi-item template="buttonTemplate"></dxi-item>
 
+      <div *dxTemplate="let data of 'selectFornecedor'">
+        <dx-select-box
+          [(dataSource)]="fornecedores"
+          [items]="fornecedores">
+        </dx-select-box>
+      </div>
+
+      <div *dxTemplate="let data of 'buttonTemplate'">
+        <dx-button
+          stylingMode="contained"
+          text="Salvar"
+          type="normal"
+          [width]="120"
+          (onClick)="click($event)">
+        </dx-button>
+      </div>
 
   </dx-form>
 </div>
