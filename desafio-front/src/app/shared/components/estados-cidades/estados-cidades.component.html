@@ -8,9 +8,10 @@
   style="padding-top: 40px"
   (onBlur)="showListaCidade()">
 </dx-select-box>
+<!--para uma posicao especifica colocar uma DIV com ID da variavel #posicao-->
 <dx-load-panel
   shadingColor="rgba(0,0,0,0.4)"
-  [position]="{ of: '#teste' }"
+  [position]="{ of: '#posicao' }"
   [(visible)]="loadingVisible"
   [showIndicator]="true"
   [showPane]="true"
@@ -20,13 +21,12 @@
   (onHidden)="onHidden()">
 </dx-load-panel>
 
-<div id="teste1">
-  <dx-select-box
+ <dx-select-box
     [items]="estradaCidade"
     placeholder="Selecione a Cidade"
     displayExpr="nome"
     [searchEnabled]="true"
     style="padding-top: 40px">
-  </dx-select-box>
-</div>
+ </dx-select-box>
+
 
