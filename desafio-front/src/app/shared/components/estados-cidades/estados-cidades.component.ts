@@ -11,10 +11,11 @@ export class EstadosCidadesComponent implements OnInit {
 
   /*estados: Observable<Estados[]>;*/
   estadoUF: Estados;
-  cidades: string[] = [];
+  /*cidades: string[] = [];*/
 
   @Input() estradaEstado: any | Estados;
-  @Output() estado = new EventEmitter;
+  @Input() estradaCidade: any[] | string[];
+  @Output() saidaEstado = new EventEmitter;
 
   constructor(private services: ListaService) { }
 
@@ -25,10 +26,10 @@ export class EstadosCidadesComponent implements OnInit {
   }
 
    enviaEstado(event: any){
-    this.estado.emit(event);
+    this.saidaEstado.emit(event);
    }
 
-  setEstado(event: Estados){
+  /*setEstado(event: Estados){
    if(event && event!=this.estadoUF){
      this.estadoUF = event;
      this.services.listaCidades(this.estadoUF.sigla).subscribe(dados => {
@@ -36,6 +37,6 @@ export class EstadosCidadesComponent implements OnInit {
        this.cidades = dados;
      });
    }
- }
+  }*/
 
 }

@@ -20,6 +20,8 @@ export class TasksComponent implements OnInit {
   itens: Itens[];
 
   estados: Estados[];
+  estadoUF: Estados;
+  cidade: string[];
 
 
 
@@ -48,5 +50,14 @@ export class TasksComponent implements OnInit {
     console.log(this.notaFiscal);
   }
 
+  setEstado(event: Estados){
+    if(event && event!=this.estadoUF){
+      this.estadoUF = event;
+      this.services.listaCidades(this.estadoUF.sigla).subscribe(dados => {
+        // @ts-ignore
+        this.cidade = dados;
+      });
+    }
+  }
 
 }

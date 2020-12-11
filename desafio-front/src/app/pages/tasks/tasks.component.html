@@ -12,7 +12,11 @@
         </dxi-tab>
 
         <dxi-tab title="Informaçoes Extra">
-          <estados-cidades estradaEstado="estados"></estados-cidades>
+          <estados-cidades
+            [estradaEstado]="estados"
+            (saidaEstado)="setEstado($event)"
+            [estradaCidade]="cidade"
+          ></estados-cidades>
         </dxi-tab>
 
         <dxi-tab title="Itens">

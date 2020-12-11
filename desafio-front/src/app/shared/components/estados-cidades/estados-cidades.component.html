@@ -12,11 +12,19 @@
   displayExpr="sigla"
   [searchEnabled]="true"
   [value]="estadoUF"
-  (valueChange)="setEstado($event)"
+  (valueChange)="enviaEstado($event)"
   style="padding-top: 40px">
 
 </dx-select-box>
+<dx-select-box
+  [items]="estradaCidade"
+  placeholder="Selecione a Cidade"
+  displayExpr="nome"
+  [searchEnabled]="true"
+  style="padding-top: 40px">
+</dx-select-box>
 
+<!--
 <dx-select-box
   [items]="cidades"
   placeholder="Selecione a Cidade"
@@ -24,3 +32,4 @@
   [searchEnabled]="true"
   style="padding-top: 40px">
 </dx-select-box>
+-->
