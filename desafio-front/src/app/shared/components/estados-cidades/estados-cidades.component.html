@@ -6,7 +6,7 @@
   [value]="estadoUF"
   (valueChange)="enviaEstado($event)"
   style="padding-top: 40px"
-  (onCustomItemCreating)="showListaCidade()">
+  (onBlur)="showListaCidade()">
 </dx-select-box>
 <dx-load-panel
   shadingColor="rgba(0,0,0,0.4)"
@@ -19,11 +19,14 @@
   (onShown)="onShown()"
   (onHidden)="onHidden()">
 </dx-load-panel>
-<dx-select-box #teste
-  [items]="estradaCidade"
-  placeholder="Selecione a Cidade"
-  displayExpr="nome"
-  [searchEnabled]="true"
-  style="padding-top: 40px">
-</dx-select-box>
+
+<div id="teste1">
+  <dx-select-box
+    [items]="estradaCidade"
+    placeholder="Selecione a Cidade"
+    displayExpr="nome"
+    [searchEnabled]="true"
+    style="padding-top: 40px">
+  </dx-select-box>
+</div>
 

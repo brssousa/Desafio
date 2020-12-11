@@ -1,7 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {ListaService} from "../../services/listar.service";
 import {Estados} from "../../../model/estados";
-import {Observable} from "rxjs";
 
 @Component({
   selector: 'estados-cidades',
@@ -18,12 +16,8 @@ export class EstadosCidadesComponent implements OnInit {
   @Input() estradaCidade: any[] | string[];
   @Output() saidaEstado = new EventEmitter;
 
-  constructor(private services: ListaService) {}
+  constructor() {}
 
-  showListaCidade(){
-    this.cidadesinf = {};
-    this.loadingVisible = true;
-  }
   onShown() {
     setTimeout(() => {
       this.loadingVisible = false;
@@ -31,6 +25,11 @@ export class EstadosCidadesComponent implements OnInit {
   }
   onHidden() {
     this.cidadesinf = this.estradaCidade;
+    console.log(this.cidadesinf);
+  }
+  showListaCidade(){
+    this.cidadesinf = {};
+    this.loadingVisible = true;
   }
 
   ngOnInit(): void {  }
