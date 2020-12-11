@@ -13,7 +13,7 @@ export class ListaService {
 
   urlApi = 'http://localhost:8080/fornecedor';
   apiNotas = 'http://localhost:8080/notaFiscal';
-  estadoApi = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados/31|35';
+  estadoApi = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome';
 
 
   constructor(private http: HttpClient) { }

@@ -24,7 +24,6 @@ export class TasksComponent implements OnInit {
   cidade: string[];
 
 
-
   constructor(private services: ListaService) {}
 
   ngOnInit(): void {

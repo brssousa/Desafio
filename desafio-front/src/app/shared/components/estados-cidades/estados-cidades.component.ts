@@ -9,34 +9,33 @@ import {Observable} from "rxjs";
 })
 export class EstadosCidadesComponent implements OnInit {
 
-  /*estados: Observable<Estados[]>;*/
   estadoUF: Estados;
-  /*cidades: string[] = [];*/
+  loadingVisible = false;
+  cidadesinf: any = {};
+
 
   @Input() estradaEstado: any | Estados;
   @Input() estradaCidade: any[] | string[];
   @Output() saidaEstado = new EventEmitter;
 
-  constructor(private services: ListaService) { }
+  constructor(private services: ListaService) {}
 
-  ngOnInit(): void {
-
-    /*this.estados = this.services.listaEstados();*/
-
+  showListaCidade(){
+    this.cidadesinf = {};
+    this.loadingVisible = true;
   }
+  onShown() {
+    setTimeout(() => {
+      this.loadingVisible = false;
+    }, 3000);
+  }
+  onHidden() {
+    this.cidadesinf = this.estradaCidade;
+  }
+
+  ngOnInit(): void {  }
 
    enviaEstado(event: any){
     this.saidaEstado.emit(event);
    }
-
-  /*setEstado(event: Estados){
-   if(event && event!=this.estadoUF){
-     this.estadoUF = event;
-     this.services.listaCidades(this.estadoUF.sigla).subscribe(dados => {
-       // @ts-ignore
-       this.cidades = dados;
-     });
-   }
-  }*/
-
 }

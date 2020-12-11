@@ -1,11 +1,3 @@
-<!--<dx-select-box
-  [items]="estados | async"
-  placeholder="Selecione o Estado"
-  displayExpr="sigla"
-  [searchEnabled]="true"
-  [value]="estadoUF"
-  (valueChange)="setEstado($event)"
-  style="padding-top: 40px">-->
 <dx-select-box
   [items]="estradaEstado"
   placeholder="Selecione o Estado"
@@ -13,10 +5,24 @@
   [searchEnabled]="true"
   [value]="estadoUF"
   (valueChange)="enviaEstado($event)"
-  style="padding-top: 40px">
+  style="padding-top: 40px"
+  (onClick)="showListaCidade()">
+
+  <dx-load-panel
+    shadingColor="rgba(0,0,0,0.4)"
+    [position]="{ of: '#employee' }"
+    [(visible)]="loadingVisible"
+    [showIndicator]="true"
+    [showPane]="true"
+    [shading]="true"
+    [closeOnOutsideClick]="false"
+    (onShown)="onShown()"
+    (onHidden)="onHidden()">
+  </dx-load-panel>
+
 
 </dx-select-box>
-<dx-select-box
+<dx-select-box #teste
   [items]="estradaCidade"
   placeholder="Selecione a Cidade"
   displayExpr="nome"
@@ -24,12 +30,3 @@
   style="padding-top: 40px">
 </dx-select-box>
 
-<!--
-<dx-select-box
-  [items]="cidades"
-  placeholder="Selecione a Cidade"
-  displayExpr="nome"
-  [searchEnabled]="true"
-  style="padding-top: 40px">
-</dx-select-box>
--->

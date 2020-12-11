@@ -6,7 +6,14 @@ import {SideNavInnerToolbarModule, SideNavOuterToolbarModule, SingleCardModule} 
 import {FooterModule, LoginFormModule} from './shared/components';
 import {AppInfoService, AuthService, ScreenService} from './shared/services';
 import {NotAuthorizedContainerModule} from './not-authorized-container';
-import {DxButtonModule, DxDataGridModule, DxFormModule, DxSelectBoxModule, DxTemplateModule} from 'devextreme-angular';
+import {
+    DxButtonModule,
+    DxDataGridModule,
+    DxFormModule,
+    DxLoadPanelModule,
+    DxSelectBoxModule,
+    DxTemplateModule
+} from 'devextreme-angular';
 import {HttpClientModule} from '@angular/common/http';
 import {HomeComponent} from './pages/home/home.component';
 import {ProfileComponent} from './pages/profile/profile.component';
@@ -45,7 +52,8 @@ import { EstadosCidadesComponent } from './shared/components/estados-cidades/est
         ReactiveFormsModule,
         FormsModule,
         AppRoutingModule,
-        DxSelectBoxModule
+        DxSelectBoxModule,
+        DxLoadPanelModule
     ],
   providers: [
     AuthService,
