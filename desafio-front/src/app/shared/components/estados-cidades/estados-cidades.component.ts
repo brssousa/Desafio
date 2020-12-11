@@ -5,8 +5,7 @@ import {Observable} from "rxjs";
 
 @Component({
   selector: 'estados-cidades',
-  templateUrl: './estados-cidades.component.html',
-  styleUrls: ['./estados-cidades.component.scss']
+  templateUrl: './estados-cidades.component.html'
 })
 export class EstadosCidadesComponent implements OnInit {
 

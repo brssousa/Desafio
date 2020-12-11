@@ -38,7 +38,12 @@ public class DesafioController {
 
 		URI uri = uriBuilder.path("/itens/{id}").buildAndExpand(notas.getId()).toUri();
 		return ResponseEntity.created(uri).body(new NotaFiscal(
-				notas.getId(),notas.getFornecedor(),notas.getNumero(),notas.getData()));
+				notas.getId(),
+				notas.getFornecedor(),
+				notas.getNumero(),
+				notas.getData(),
+				notas.getEstado(),
+				notas.getCidades()));
 	}
 
 	@GetMapping("/fornecedor")

@@ -1,9 +1,8 @@
 package br.com.sonner.desafio.modelo;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.aspectj.weaver.ast.Not;
+
+import javax.persistence.*;
 
 @Entity
 public class Fornecedor {
@@ -33,6 +32,7 @@ public class Fornecedor {
 	public void setFornecedor(String descricao) {
 		this.fornecedor = descricao;
 	}
+
 	
 
 }

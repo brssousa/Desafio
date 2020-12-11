@@ -9,6 +9,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.PrimitiveIterator;
 
 @Entity
 public class NotaFiscal {
@@ -19,7 +20,12 @@ public class NotaFiscal {
 
 	private Long numero;
 
-	private String fornecedor;
+	private String estado;
+
+	private String cidades;
+
+	@OneToOne
+	private Fornecedor fornecedor;
 
 
 	@JsonSerialize (using = DateSerializer.class)
@@ -37,11 +43,13 @@ public class NotaFiscal {
 	}
 
 
-	public NotaFiscal(long id, String fornecedor, Long numero, Date data) {
+	public NotaFiscal(long id, Fornecedor fornecedor, Long numero, Date data, String estado, String cidades) {
 		this.id = id;
 		this.numero = numero;
 		this.fornecedor = fornecedor;
 		this.data = data;
+		this.estado = estado;
+		this.cidades = cidades;
 
 	}
 
@@ -62,11 +70,11 @@ public class NotaFiscal {
 		this.numero = numero;
 	}
 
-	public String getFornecedor() {
+	public Fornecedor getFornecedor() {
 		return fornecedor;
 	}
 
-	public void setFornecedor(String fornecedor) {
+	public void setFornecedor(Fornecedor fornecedor) {
 		this.fornecedor = fornecedor;
 	}
 
@@ -92,4 +100,19 @@ public class NotaFiscal {
 		this.itens = itens;
 	}
 
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+
+	public String getCidades() {
+		return cidades;
+	}
+
+	public void setCidades(String cidades) {
+		this.cidades = cidades;
+	}
 }

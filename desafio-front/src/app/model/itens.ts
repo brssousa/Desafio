@@ -1,7 +1,8 @@
 import {NotaFiscal} from "./nota.fiscal";
 
 export class Itens {
-    id:number;
+
+  id:number;
 
   nota: NotaFiscal;
 

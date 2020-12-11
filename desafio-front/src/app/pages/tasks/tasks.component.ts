@@ -12,14 +12,17 @@ import {NotaFiscal} from "../../model/nota.fiscal";
 })
 
 export class TasksComponent implements OnInit {
-  notaFiscal: Fornecedor;
+  notaFiscal: NotaFiscal = new NotaFiscal();
   fornecedores: Fornecedor[];
+  fornecedor: Fornecedor;
   itens: Itens[];
 
 
   constructor(private services: ListaService) {}
 
   ngOnInit(): void {
+
+    this.notaFiscal.itens = new Array();
 
     this.services.list().subscribe(dados => {
       this.fornecedores = dados;
